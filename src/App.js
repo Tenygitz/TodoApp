@@ -9,17 +9,17 @@ function App() {
   let [display,setDisplay]=useState("")
   
   const handleInput=(e)=>{
-    setDisplay(e.target.value)
+    setDisplay(e.target.value)//e.target.value to get value type in inputfield
   }
   const onClickHandler=()=>{
     const data = [...input,{id:Date.now(),text: display,status:false}];
   setInput(data) 
-  localStorage.setItem("tasks",JSON.stringify(data))
-  setDisplay("")
+  localStorage.setItem("tasks",JSON.stringify(data))// to set value in localstorage
+  setDisplay("")//to input field empty after entering
 }
 
 useEffect(()=>{
-  const getInput=JSON.parse(localStorage.getItem("tasks"))
+  const getInput=JSON.parse(localStorage.getItem("tasks"))// to get item in localstorage in javascript
   console.log("this is",getInput)
   if(getInput){
    setInput(getInput)
